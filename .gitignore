@@ -1,4 +1,4 @@
 **/launch.json
 *.app
 *.g.xlf
-**/settings.json
+#**/settings.json

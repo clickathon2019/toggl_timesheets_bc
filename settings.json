@@ -1,0 +1,52 @@
+{
+    "name": "helloworld",
+    "startupObjectId":  22,
+    "startupObjectType":  "Page",
+    "breakOnError":  true,
+    "navContainerHelperPath": "",
+    "tests": [
+        {
+            "test": "unittests",
+            "type": "Codeunit",
+            "companyName": "CRONUS USA, Inc.",
+            "codeunitId": "50130",
+            "methodName": "RunTests"
+        }
+    ],
+     "versions": [
+        {
+            "version": "current",
+            "containerImage": "microsoft/bcsandbox:us",
+            "alwaysPull": false
+        },
+        {
+            "version": "nextminor",
+            "containerImage": "bcinsider.azurecr.io/bcsandbox:us",
+            "alwaysPull": true
+        },
+        {
+            "version": "nextmajor",
+            "containerImage": "bcinsider.azurecr.io/bcsandbox-master:us",
+            "alwaysPull": true
+        }
+    ],
+    "profiles": [
+        {
+            "profile": "Default",
+            "subscriptionId": "06b238cd-c37e-47d7-9841-ee2dc1579b9c",
+            "environment": "AzureCloud",
+            "keyVault": "CICD-TEST-Key",
+            "resourceGroup": "CICD-TEST",
+            "templateUri": "https://raw.githubusercontent.com/AndriusAndrulevicius/nav-arm-templates/master/getbcext.json",
+            "location": "West Europe",
+            "domain": "westeurope.cloudapp.azure.com",
+            "Properties": {
+                "accepteula": "Yes",
+                "remotedesktopaccess": "*",
+                "vmName": "CICD-TEST-VM",
+                "vmSize": "Standard_D11_v2",
+                "contactemailforletsencrypt": "<email>"
+            }
+        }
+    ]
+}
